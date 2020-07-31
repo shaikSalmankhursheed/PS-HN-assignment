@@ -1,0 +1,19 @@
+.tableheading {
+  background-color: #ff8000 !important ;
+  color: white !important;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
+tr:nth-child(odd) {
+  background-color: #bfbfbf;
+}
+
+.prev-next {
+  color: #ff8000;
+  font-weight: bolder;
+  text-align: right;
+  background-color: white;
+}
