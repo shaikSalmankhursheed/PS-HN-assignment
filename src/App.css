@@ -8,7 +8,7 @@ tr:nth-child(even) {
 }
 
 tr:nth-child(odd) {
-  background-color: #bfbfbf;
+  background-color: #e6e6e6;
 }
 
 .prev-next {
@@ -16,4 +16,17 @@ tr:nth-child(odd) {
   font-weight: bolder;
   text-align: right;
   background-color: white;
+}
+
+.table td,
+.table th {
+  padding: 0.1rem;
+  vertical-align: top;
+  border-top: 0px solid #dee2e6;
+}
+
+.url {
+  font-size: 11px;
+  color: grey;
+  text-decoration: none;
 }
