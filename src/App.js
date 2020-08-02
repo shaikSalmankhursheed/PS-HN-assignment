@@ -42,6 +42,17 @@ const App = () => {
       Setapidata(localStorage1);
     }
   };
+
+  const Hiderow = (id) => {
+    let obj = apidata.find((x) => x.objectID == id);
+    console.log(obj);
+    let index = apidata.indexOf(obj);
+    console.log(index);
+    apidata.splice(index, 1);
+    localStorage.setItem("apidata", JSON.stringify(apidata));
+    // window.location.reload(false);
+    Setapidata(JSON.parse(localStorage.getItem("apidata")));
+  };
   const IncrementVote = (prep) => {
     let obj = apidata.find((x) => x.objectID == prep);
     console.log(obj);
@@ -139,7 +150,15 @@ const App = () => {
                     </span>
                     <span> {created_in_hours(d.created_at)} hours ago</span>
                     <span>
-                      [<a style={{ cursor: "pointer", color: "black" }}>hide</a>
+                      [
+                      <a
+                        style={{ cursor: "pointer", color: "black" }}
+                        onClick={() => {
+                          Hiderow(d.objectID);
+                        }}
+                      >
+                        hide
+                      </a>
                       ]
                     </span>
                   </span>
