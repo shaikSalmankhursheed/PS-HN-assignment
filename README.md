@@ -1,7 +1,7 @@
 ## A few key points
 1)Front Page feed with line chart updates in real time, as the data of votes is random please upvote to a higher value to see noticable change or hover over to the graph to get the exact value to compare if its updating or not. I could have incremented the vote to 100 on one click to see the graph change quickly.
-2)Prev | Next link should get the relevant data and all paginated URL's should be bookmarkable. Used Local storage and stored each object for each page, so even moving to a next page and coming back, the changes made previously are persisted on a refresh as well.
-3)Upvote and hide functionality are implemented using local storage and routing
+<br />2)Prev | Next link should get the relevant data and all paginated URL's should be bookmarkable. Used Local storage and stored each object for each page, so even moving to a next page and coming back, the changes made previously are persisted on a refresh as well.
+<br />3)Upvote and hide functionality are implemented using local storage and routing
 
 I have fixed many bugs while working on this application, Overall it was a great learning experience for me.
 
