@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BsFillCaretUpFill } from "react-icons/bs";
 import axios from "axios";
+import { useParams, Redirect, NavLink } from "react-router-dom";
+
 import {
   LineChart,
   Line,
@@ -16,7 +18,8 @@ import {
 import "./App.css";
 
 const App = () => {
-  const [page, SetPage] = useState(0);
+  const routerPage = useParams();
+  const [page, SetPage] = useState(parseInt(routerPage.number, 10));
   const [apidata, Setapidata] = useState([]);
   const [lstorage, Setlstorage] = useState([]);
 
@@ -171,28 +174,36 @@ const App = () => {
           <tr>
             <td colSpan="4" className="prev-next ">
               <span>
-                <span
-                  // style={{ cursor: "pointer" }}
-
-                  style={
-                    page == 0 ? { display: "none" } : { cursor: "pointer" }
-                  }
-                  onClick={() => {
-                    SetPage(page - 1);
-                  }}
-                >
+                <a href={"/page=" + page}>
                   {" "}
-                  Previous
-                </span>
+                  <span
+                    // style={{ cursor: "pointer" }}
+
+                    style={
+                      page == 0 ? { display: "none" } : { cursor: "pointer" }
+                    }
+                    onClick={() => {
+                      SetPage(page - 1);
+                      localStorage.removeItem("apidata");
+                    }}
+                  >
+                    {" "}
+                    Previous
+                  </span>{" "}
+                </a>
                 <span> | </span>
-                <span
-                  style={{ cursor: "pointer" }}
-                  onClick={() => {
-                    SetPage(page + 1);
-                  }}
-                >
-                  Next
-                </span>
+                <a href={"/page=" + page}>
+                  {" "}
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      SetPage(page + 1);
+                      localStorage.removeItem("apidata");
+                    }}
+                  >
+                    Next
+                  </span>
+                </a>
               </span>
             </td>
           </tr>

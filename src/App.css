@@ -34,3 +34,7 @@ tr:nth-child(odd) {
 .orange {
   border-top: 3px solid #ff8000;
 }
+
+a {
+  color: inherit;
+}
