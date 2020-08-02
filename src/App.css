@@ -30,3 +30,7 @@ tr:nth-child(odd) {
   color: grey;
   text-decoration: none;
 }
+
+.orange {
+  border-top: 3px solid #ff8000;
+}
