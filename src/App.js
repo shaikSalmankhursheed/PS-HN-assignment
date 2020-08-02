@@ -24,7 +24,7 @@ const App = () => {
   const [lstorage, Setlstorage] = useState([]);
 
   const getApidata = (page) => {
-    let localStorage1 = JSON.parse(localStorage.getItem("apidata"));
+    let localStorage1 = JSON.parse(localStorage.getItem(`apidata${page}`));
     if (localStorage1 == null) {
       axios
         .get(`https://hn.algolia.com/api/v1/search?&page=${page}`)
@@ -32,7 +32,10 @@ const App = () => {
           // handle success
           // console.log(response.data.hits);
           Setapidata(response.data.hits);
-          localStorage.setItem("apidata", JSON.stringify(response.data.hits));
+          localStorage.setItem(
+            `apidata${page}`,
+            JSON.stringify(response.data.hits)
+          );
         })
         .catch(function (error) {
           // handle error
@@ -52,9 +55,9 @@ const App = () => {
     let index = apidata.indexOf(obj);
     console.log(index);
     apidata.splice(index, 1);
-    localStorage.setItem("apidata", JSON.stringify(apidata));
+    localStorage.setItem(`apidata${page}`, JSON.stringify(apidata));
     // window.location.reload(false);
-    Setapidata(JSON.parse(localStorage.getItem("apidata")));
+    Setapidata(JSON.parse(localStorage.getItem(`apidata${page}`)));
   };
   const IncrementVote = (prep) => {
     let obj = apidata.find((x) => x.objectID == prep);
@@ -63,9 +66,9 @@ const App = () => {
     console.log(index);
     apidata.fill((obj.points = obj.points + 1), index, index++);
     console.log(apidata);
-    localStorage.setItem("apidata", JSON.stringify(apidata));
+    localStorage.setItem(`apidata${page}`, JSON.stringify(apidata));
     // window.location.reload(false);
-    Setapidata(JSON.parse(localStorage.getItem("apidata")));
+    Setapidata(JSON.parse(localStorage.getItem(`apidata${page}`)));
   };
   const created_in_hours = (created) => {
     var today1 = new Date();
